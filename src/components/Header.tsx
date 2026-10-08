@@ -1,13 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
     dateStyle: "full",
   });
 
-  console.log(date);
   return (
     <div className="container mx-auto px-4">
       <div className="flex items-center justify-between py-3 ">
