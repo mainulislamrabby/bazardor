@@ -12,8 +12,6 @@ const Navbar = async () => {
   );
   const categories: NavType[] = await res.json();
 
-  console.log(categories);
-
   return (
     <div className="border bg-[#f0f5f0] shadow-sm py-1 border-gray-100">
       <div className="container mx-auto px-4 py-2 flex flex-wrap gap-2 justify-center sm:justify-start">

@@ -1,10 +1,12 @@
+import Marquee from "@/components/Marquee";
 
 
 export default function Home() {
   return (
     <div>
-      Hi I am bazardor
-      আমার নাম বাজার দর
+      <div>
+        <Marquee/>
+      </div>
     </div>
   );
 }
