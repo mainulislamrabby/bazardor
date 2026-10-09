@@ -20,7 +20,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="light"
       className={`${notoSansBangali.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#fafcfa]">
+      <body className="min-h-full flex flex-col bg-gray-50">
         <Header />
         <Navbar/>
         {children}

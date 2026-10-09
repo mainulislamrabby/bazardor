@@ -21,9 +21,9 @@ interface ProductProps {
 }
 
 const Marquee = async () => {
-  const res = await fetch("https://api.abcz.workers.dev/api/bazardor/products");
+  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
   const products: ProductProps[] = await res.json();
-  console.log(products);
+
   return (
     <div className="my-2">
       <div className="container mx-auto px-4">
