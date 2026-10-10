@@ -11,6 +11,7 @@ const PriceDownProducts = ({
     .filter((p) => p.change.dir === "down")
     .sort((a, b) => b.change.pct - a.change.pct)
     .slice(0, 6);
+      if (priceDown.length === 0) return null;
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex items-center gap-2 py-2">

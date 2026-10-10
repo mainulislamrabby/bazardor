@@ -14,7 +14,6 @@ const PriceRiseProducts = ({
     )
     .slice(0, 6);
   if (priceRise.length === 0) return null;
-  console.log(priceRise);
   return (
     <div className="container mx-auto px-4 py-8">
         <div className="flex items-center gap-2 py-2">

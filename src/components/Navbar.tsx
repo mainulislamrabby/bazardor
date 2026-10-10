@@ -1,7 +1,6 @@
 import { CategoryTypes } from "@/types/categoryTypes";
 import Link from "next/link";
 
-
 const Navbar = async () => {
   const res = await fetch(
     "https://openapi.programming-hero.com/api/bazardor/categories",
