@@ -6,14 +6,18 @@ import PriceDownProducts from "@/components/PriceDownProducts";
 import PriceRiseProducts from "@/components/PriceRiseProducts";
 
 
-export default function Home() {
+
+export default async function Home() {
+  const res = await fetch('https://openapi.programming-hero.com/api/bazardor/products');
+  const data = await res.json();
+  const products = data;
   return (
     <div>
       <div>
         <Marquee/>
         <Banner/>
-        <PriceRiseProducts/>
-        <PriceDownProducts/>
+        <PriceRiseProducts products={products}/>
+        <PriceDownProducts products={products}/>
         <AllProducts/>
       </div>
     </div>
