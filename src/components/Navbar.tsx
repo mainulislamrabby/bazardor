@@ -1,16 +1,12 @@
+import { CategoryTypes } from "@/types/categoryTypes";
 import Link from "next/link";
-interface NavType {
-  id: string;
-  slug: string;
-  nameBn: string;
-  icon: string;
-}
+
 
 const Navbar = async () => {
   const res = await fetch(
     "https://api.api-store.workers.dev/api/bazardor/categories",
   );
-  const categories: NavType[] = await res.json();
+  const categories: CategoryTypes[] = await res.json();
 
   return (
     <div className="border bg-[#f0f5f0] shadow-sm py-1 border-gray-100">

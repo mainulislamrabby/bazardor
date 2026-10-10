@@ -1,28 +1,11 @@
+import { ProductTypes } from "@/types/productTypes";
 import MarqueeText from "react-marquee-text";
 import "react-marquee-text/dist/styles.css";
 
-interface ProductProps {
-  id: number;
-  slug: string;
-  nameBn: string;
-  category: string;
-  categoryNameBn: string;
-  categoryIcon: string;
-  unit: string;
-  image: string;
-  today: number;
-  yesterday: number;
-  lastWeek: number;
-  lastMonth: number;
-  change: {
-    dir: "up" | "down" | "flat";
-    pct: number;
-  };
-}
 
 const Marquee = async () => {
   const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
-  const products: ProductProps[] = await res.json();
+  const products: ProductTypes[] = await res.json();
 
   return (
     <div className="my-2">

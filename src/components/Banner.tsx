@@ -1,12 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import AllProducts from "./AllProducts";
 
 const Banner = () => {
   const date = new Date().toLocaleString("bn-BD", {
     dateStyle: "full",
   });
-
-  console.log(date);
 
   return (
     <div>
@@ -14,7 +13,7 @@ const Banner = () => {
         <div className="card bg-base-100 py-4 sm:py-6 px-4 sm:px-8 rounded-2xl shadow-sm">
           <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-6 md:gap-4">
             <div className="w-full md:flex-1">
-              <h2 className="bg-[#E1F0E7] text-center text-[#289958] inline-block px-3 py-1 rounded-md text-sm sm:text-base mb-3">
+              <h2 className="bg-[#E1F0E7] text-center text-[#21834a] inline-block px-3 py-1 rounded-md text-sm sm:text-base mb-3">
                 {date}
               </h2>
 
@@ -28,9 +27,11 @@ const Banner = () => {
                 জায়গায়।
               </p>
 
-              <button className="btn btn-success w-full sm:w-auto">
-                সব পণ্য দেখুন
-              </button>
+              <a href="#সব-পণ্য">
+                <button className="btn btn-success w-full sm:w-auto">
+                  সব পণ্য দেখুন
+                </button>
+              </a>
             </div>
 
             <div className="w-full md:w-auto flex justify-center">
