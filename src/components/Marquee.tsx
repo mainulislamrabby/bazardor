@@ -4,7 +4,7 @@ import "react-marquee-text/dist/styles.css";
 
 
 const Marquee = async () => {
-  const res = await fetch("https://api.api-store.workers.dev/api/bazardor/products");
+  const res = await fetch("https://openapi.programming-hero.com/api/bazardor/products");
   const products: ProductTypes[] = await res.json();
 
   return (
