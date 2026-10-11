@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 বাজার দর | BazarDor
 
-## Getting Started
+**Know Today's Market Prices at a Glance.**
 
-First, run the development server:
+বাজার দর (BazarDor) is a responsive Bangla market price tracking web application that helps users explore daily prices of essential products in Bangladesh. Users can compare market prices, track price increases and decreases, browse products by category, and view detailed market-wise price information through a clean and user-friendly interface.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## ✨ Key Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **📊 Real-Time Style Price Tracking:** View today's product prices, price changes, and percentage increases or decreases through an animated market ticker and dedicated price sections.
+- **🛍️ Product Catalog & Categories:** Browse essential products through responsive product cards, category-based filtering, and price sorting in ascending or descending order.
+- **📈 Detailed Market Price Comparison:** Explore product details, including minimum, maximum, and average prices, along with market-wise price comparisons.
+- **🔐 Secure Authentication & Profile Management:** Register and sign in using email/password or Google and GitHub authentication, manage your profile, and access protected product detail pages.
+- **📱 Responsive & User-Friendly Interface:** Enjoy a mobile-friendly layout, loading skeletons, toast notifications, custom 404 pages, and intuitive navigation across devices.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Technology | Purpose |
+|---|---|
+| Next.js (App Router) | Application structure, routing, and page rendering |
+| React | Component-based user interface |
+| TypeScript | Type safety and maintainable code |
+| Tailwind CSS | Responsive styling and layout |
+| DaisyUI / Component Library | Reusable UI components |
+| Better Auth | Authentication and social login |
+| React Hot Toast | Success, error, and validation notifications |
 
-## Learn More
+## 🚀 Core Pages & Functionality
 
-To learn more about Next.js, take a look at the following resources:
+- **Home (`/`)** — Hero banner, animated price ticker, top price risers and fallers, and the complete product catalog.
+- **Category (`/category/[id]`)** — Category-specific products with sorting controls and loading states.
+- **Product Details (`/product/[slug]`)** — Product summaries, price statistics, and market-wise price comparisons. Requires authentication.
+- **Sign In (`/sign-in`)** — Email/password login and social authentication.
+- **Sign Up (`/sign-up`)** — User registration and social authentication.
+- **My Profile** — View profile information and access profile update functionality.
+- **Update Profile** — Update the user's name through a dedicated form.
+- **404 Page** — A friendly error page for unknown routes and unavailable products or categories, with a link back to the homepage.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎯 Additional Highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Bengali product prices and percentage changes.
+- Numeric sorting that correctly handles Bengali numerals.
+- Toast notifications for authentication, validation, and logout events.
+- Skeleton loaders while product data is loading.
+- Protected routes and authentication-aware navigation.
+- Responsive layouts for mobile, tablet, and desktop screens.
+- Deployment-ready routing designed to support page refreshes on Vercel.
 
-## Deploy on Vercel
+## ⚙️ Getting Started
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js
+- npm
+- A Better Auth-compatible database and configured authentication providers, as required by your implementation.
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <your-repository-url>
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd bazardor
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+4. Configure the required environment variables in your `.env` file, including the Better Auth secret, database connection, and OAuth credentials where applicable.
+
+5. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 🌐 Deployment
+
+The application can be deployed to [Vercel](https://vercel.com/).
+
+Before deployment, configure all required environment variables and verify that authentication providers, database connectivity, and dynamic routes work correctly in production.
+
+## 📝 Disclaimer
+
+Market prices displayed by বাজার দর are indicative and may vary depending on location, market conditions, product quality, and availability. Prices should not be considered guaranteed quotations.
+
+---
+
+**বাজার দর — প্রয়োজনীয় পণ্যের দাম এক নজরে।**
+
+*Built with Next.js, TypeScript, and Tailwind CSS.*

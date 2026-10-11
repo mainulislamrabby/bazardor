@@ -1,7 +1,7 @@
 
 import AllProducts from "@/components/AllProducts";
 import Banner from "@/components/Banner";
-import Marquee from "@/components/Marquee";
+
 import PriceDownProducts from "@/components/PriceDownProducts";
 import PriceRiseProducts from "@/components/PriceRiseProducts";
 
@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <div>
       <div>
-        <Marquee/>
+
         <Banner/>
         <PriceRiseProducts products={products}/>
         <PriceDownProducts products={products}/>
