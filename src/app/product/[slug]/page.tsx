@@ -168,12 +168,19 @@ const ProductDetails = async ({ params }: ProductDetailsProps) => {
 
                     <td className="whitespace-nowrap p-3">{market.division}</td>
 
-                    <td className="whitespace-nowrap p-3">৳{Number(market.min).toLocaleString("bn-BD")}</td>
+                    <td className="whitespace-nowrap p-3">
+                      ৳{Number(market.min).toLocaleString("bn-BD")}
+                    </td>
 
-                    <td className="whitespace-nowrap p-3">৳{Number(market.max).toLocaleString("bn-BD")}</td>
+                    <td className="whitespace-nowrap p-3">
+                      ৳{Number(market.max).toLocaleString("bn-BD")}
+                    </td>
 
                     <td className="whitespace-nowrap p-3 text-right font-semibold">
-                      ৳{Number(((market.min + market.max) / 2).toFixed(2)).toLocaleString("bn-BD")}
+                      ৳
+                      {Number(
+                        ((market.min + market.max) / 2).toFixed(2),
+                      ).toLocaleString("bn-BD")}
                     </td>
                   </tr>
                 ))}
