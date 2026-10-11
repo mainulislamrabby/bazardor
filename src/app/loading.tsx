@@ -52,4 +52,4 @@ rounded-full"
   );
 }
 
-export default HomeLoading
+export default HomeLoading;

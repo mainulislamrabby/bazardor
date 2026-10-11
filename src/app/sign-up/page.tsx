@@ -1,7 +1,41 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React from "react";
 
 const SignUpPage = () => {
+  const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const user = Object.fromEntries(formData.entries()) as {
+      name: string;
+      email: string;
+      password: string;
+    };
+    const { data, error } = await authClient.signUp.email({
+      ...user,
+    });
+    if (data) {
+      console.log(data);
+      redirect("/");
+    }
+    if (error) {
+      console.log(error);
+    }
+  };
+
+  const handleGoolgeSignUp = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
+  const handleGithubSignUp = async () => {
+    await authClient.signIn.social({
+      provider: "github",
+    });
+  };
   return (
     <div className="min-h-screen bg-[#f0f5f0] px-4 py-8 sm:py-12">
       <div className="mx-auto w-full max-w-sm sm:max-w-md">
@@ -16,7 +50,10 @@ const SignUpPage = () => {
         </div>
 
         {/* Sign Up Form */}
-        <form className="rounded-2xl border border-[#e0e8e0] bg-white p-5 shadow-sm sm:p-7">
+        <form
+          onSubmit={onSubmit}
+          className="rounded-2xl border border-[#e0e8e0] bg-white p-5 shadow-sm sm:p-7"
+        >
           <fieldset className="fieldset">
             {/* Name */}
             <label className="label text-sm font-medium text-[#25332b] sm:text-base">
@@ -91,6 +128,7 @@ const SignUpPage = () => {
           {/* Social Login */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <button
+              onClick={handleGoolgeSignUp}
               type="button"
               className="btn btn-outline h-11 min-h-11 gap-2 border-[#e0e8e0] bg-white px-3 text-sm font-medium text-[#25332b] hover:bg-gray-50"
             >
@@ -99,6 +137,7 @@ const SignUpPage = () => {
             </button>
 
             <button
+              onClick={handleGithubSignUp}
               type="button"
               className="btn btn-outline h-11 min-h-11 gap-2 border-[#e0e8e0] bg-white px-3 text-sm font-medium text-[#25332b] hover:bg-gray-50"
             >
@@ -119,7 +158,7 @@ const SignUpPage = () => {
           <p className="mt-5 text-center text-sm text-gray-500">
             অ্যাকাউন্ট আছে?{" "}
             <Link
-              href="/login"
+              href="/sign-in"
               className="font-semibold text-[#078b43] hover:underline"
             >
               সাইন ইন করুন

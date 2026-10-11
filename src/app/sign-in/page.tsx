@@ -1,7 +1,42 @@
+"use client";
+import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React from "react";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
+  const onSubmit = async (e: React.SubmitEvent<HTMLElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const user = Object.fromEntries(formData.entries()) as {
+      email: string;
+      password: string;
+    };
+    const { data, error } = await authClient.signIn.email({
+      ...user,
+      callbackURL: "/",
+    });
+    if (data) {
+      toast.success("Sign In Successfull.");
+      console.log(data);
+    }
+    if (error) {
+      toast.error("Something is wrong");
+      console.log(error);
+    }
+  };
+
+  const handleGoolgeSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
+  const handleGithubSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "github",
+    });
+  };
   return (
     <div className="min-h-screen bg-[#f0f5f0] px-4 py-8 sm:py-12">
       <div className="mx-auto w-full max-w-sm sm:max-w-md">
@@ -17,7 +52,7 @@ const LoginPage = () => {
 
         {/* Login Card */}
         <div className="rounded-2xl border border-[#e0e8e0] bg-white p-5 shadow-sm sm:p-7">
-          <form>
+          <form onSubmit={onSubmit}>
             <fieldset className="fieldset">
               {/* Email */}
               <label className="label text-sm font-medium text-[#25332b] sm:text-base">
@@ -75,6 +110,7 @@ const LoginPage = () => {
           {/* Social Login */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <button
+              onClick={handleGoolgeSignIn}
               type="button"
               className="btn btn-outline h-11 min-h-11 gap-2 border-[#e0e8e0] bg-white px-3 text-sm font-medium text-[#25332b] hover:bg-gray-50"
             >
@@ -83,6 +119,7 @@ const LoginPage = () => {
             </button>
 
             <button
+              onClick={handleGithubSignIn}
               type="button"
               className="btn btn-outline h-11 min-h-11 gap-2 border-[#e0e8e0] bg-white px-3 text-sm font-medium text-[#25332b] hover:bg-gray-50"
             >
