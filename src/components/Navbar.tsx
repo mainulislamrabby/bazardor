@@ -14,7 +14,7 @@ const Navbar = async () => {
           <Link
             className="flex items-center gap-2 mx-1 sm:mx-2 text-sm sm:text-base"
             key={category.id}
-            href={category.slug}
+            href={`/category/${category.slug}`}
           >
             <p>{category.icon}</p>
             <p className="font-semibold"> {category.nameBn}</p>
